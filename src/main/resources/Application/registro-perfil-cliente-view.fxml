@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@/Application/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistroPerfilClienteController">
+    <children>
+        <StackPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" styleClass="app-shell">
+            <children>
+                <VBox alignment="CENTER" prefHeight="400.0" prefWidth="420.0" spacing="15.0" styleClass="card mobile-card">
+            <children>
+                <ImageView fitHeight="112.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@/icons/client_profile_icon.png" />
+                    </image>
+                </ImageView>
+                <Label styleClass="title-label" text="Complete seu cadastro!">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <VBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <TextField fx:id="enderecoField" prefHeight="40.0" promptText="Endereço" styleClass="text-field-custom" />
+                        <TextField fx:id="telefoneField" prefHeight="40.0" promptText="Telefone (ex: (DD) XXXXX-XXXX)" styleClass="text-field-custom" />
+                        <Label fx:id="errorMessageLabel" styleClass="error-message" text="" />
+                    </children>
+                    <padding>
+                        <Insets left="20.0" right="20.0" />
+                    </padding>
+                </VBox>
+                <HBox alignment="CENTER" spacing="20.0">
+                    <children>
+                        <Button onAction="#handleVoltar" prefHeight="45.0" prefWidth="120.0" styleClass="button-secondary" text="Voltar" />
+                        <Button onAction="#handleFinalizarRegistro" prefHeight="45.0" prefWidth="120.0" styleClass="button-primary" text="Finalizar" />
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+            </padding>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

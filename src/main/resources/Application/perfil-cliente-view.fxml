@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@/Application/style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PerfilClienteController">
+    <children>
+        <StackPane styleClass="app-shell" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox alignment="TOP_CENTER" prefHeight="606.0" prefWidth="420.0" spacing="20.0" styleClass="card mobile-card">
+            <children>
+                <ImageView fx:id="fotoPerfilImageView" fitHeight="150.0" fitWidth="209.0" pickOnBounds="true" preserveRatio="true" styleClass="profile-image-large">
+                    <image>
+                        <Image url="@/icons/default_profile.png" />
+                    </image>
+                    <VBox.margin>
+                        <Insets top="30.0" />
+                    </VBox.margin>
+                </ImageView>
+                <Label fx:id="nomeClienteLabel" styleClass="title-label" text="Nome do Cliente">
+                    <font>
+                        <Font name="System Bold" size="28.0" />
+                    </font>
+                </Label>
+                <VBox alignment="CENTER_LEFT" prefHeight="129.0" prefWidth="658.0" spacing="10.0">
+                    <children>
+                        <Label fx:id="emailClienteLabel" text="Email:" />
+                        <Label fx:id="enderecoClienteLabel" text="Endereço:" />
+                        <Label fx:id="telefoneClienteLabel" text="Telefone:" />
+                        <HBox spacing="20.0">
+                            <children>
+                                <Label text="Projetos:" />
+                                <Label fx:id="lblProjetosCount" text="0" />
+                                <Label text="Contratos:" />
+                                <Label fx:id="lblContratosCount" text="0" />
+                            </children>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets left="50.0" right="50.0" />
+                    </padding>
+                </VBox>
+                <HBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <Button onAction="#handleVerMeusProjetos" prefHeight="40.0" prefWidth="160.0" styleClass="button-primary" text="Meus Projetos" />
+                    </children>
+                </HBox>
+                <Button fx:id="voltarButton" onAction="#handleVoltar" prefHeight="45.0" prefWidth="150.0" styleClass="button-secondary" text="Voltar">
+                    <VBox.margin>
+                        <Insets bottom="30.0" top="20.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

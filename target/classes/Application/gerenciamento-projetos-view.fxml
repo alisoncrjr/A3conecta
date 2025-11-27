@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" stylesheets="@/Application/style.css"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controller.GerenciamentoProjetosController">
+    <children>
+        <StackPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   style="-fx-background-color: linear-gradient(to bottom, #e8f0ff, #ffffff);">
+            <children>
+                <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="420.0"
+                      style="-fx-padding: 20; -fx-spacing: 15;">
+
+                    
+                    <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="12.0"
+                          style="-fx-background-color: #1c66ff; -fx-padding: 10 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 12, 0, 0, 4);">
+                        <children>
+                            <Button onAction="#handleVoltar" text="← Voltar"
+                                    style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;" />
+
+                            <Label fx:id="labelTituloProjetos" text="Gerenciamento de Projetos"
+                                   style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;" />
+                        </children>
+                    </HBox>
+
+                    
+                    <TabPane fx:id="tabPaneProjetos" prefHeight="600.0" prefWidth="850.0"
+                             style="-fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10,0,0,4);"
+                             tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                        <tabs>
+
+                            
+                            <Tab fx:id="meusProjetosTab" text="Meus Projetos">
+                                <content>
+                                    <HBox prefHeight="550.0" prefWidth="850.0" spacing="15">
+                                        <children>
+
+                                            
+                                            <VBox prefWidth="300.0" spacing="12.0"
+                                                  style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8,0,0,3);">
+                                                <children>
+                                                    <Label text="Lista de Projetos"
+                                                           style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1c66ff;" />
+                                                    <ListView fx:id="listViewProjetos" VBox.vgrow="ALWAYS"
+                                                              style="-fx-background-radius: 10; -fx-border-color: #1c66ff; -fx-border-radius: 10;" />
+                                                </children>
+                                            </VBox>
+
+                                            
+                                            <ScrollPane prefWidth="550.0" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+                                                        style="-fx-padding: 15; -fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8,0,0,3);">
+                                                <content>
+                                                    <VBox spacing="14.0">
+
+                                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                                            <children>
+                                                                <Button onAction="#handleVoltarDetalhes" text="←"
+                                                                        style="-fx-background-color: #1c66ff; -fx-text-fill: white; -fx-background-radius: 8;" />
+                                                                <Label text="Detalhes do Projeto" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #1c66ff;" />
+                                                            </children>
+                                                        </HBox>
+
+                                                        <VBox fx:id="viewCliente" spacing="6" visible="false" managed="false">
+                                                            <children>
+                                                                <Label fx:id="lblNomeProjetoCliente" style="-fx-font-weight: bold; -fx-font-size: 16;" />
+                                                                <Label fx:id="lblPrestadorCliente" />
+                                                                <Label fx:id="lblTipoServicoCliente" />
+                                                                <Label fx:id="lblPrazoCliente" />
+                                                                <Label fx:id="lblStatusCliente" />
+
+                                                                <Label text="Custos" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #1c66ff; -fx-padding: 8 0 0 0;" />
+                                                                <Label fx:id="lblOrcamentoTotalCliente" style="-fx-font-size: 14; -fx-font-weight: bold;" />
+
+                                                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                                                    <children>
+                                                                        <Label text="Progresso:" />
+                                                                        <ProgressBar fx:id="progressBarCliente" prefWidth="200" />
+                                                                    </children>
+                                                                </HBox>
+
+                                                                <Label text="Materiais Registrados:" style="-fx-padding: 10 0 0 0;" />
+                                                                <TableView fx:id="tableViewItensCliente" prefHeight="150.0"
+                                                                           style="-fx-background-radius: 10;" />
+
+                                                                <Label text="Observações do Prestador:" style="-fx-padding: 10 0 0 0;" />
+                                                                <TextArea fx:id="txtObservacoesCliente" prefHeight="70" wrapText="true"
+                                                                          style="-fx-background-radius: 10;" />
+
+                                                                <Button fx:id="btnAprovarOrcamento" text="Aprovar Orçamento"
+                                                                    onAction="#handleAprovarOrcamento"
+                                                                    visible="false"
+                                                                    style="-fx-background-color: #1c66ff; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;" />
+                                                            </children>
+                                                        </VBox>
+
+                                                        <VBox fx:id="viewPrestador" spacing="8" visible="false" managed="false">
+                                                            <children>
+                                                                <HBox spacing="10" alignment="CENTER_RIGHT">
+                                                                    <children>
+                                                                        <Button text="Voltar ao Painel" onAction="#handleVoltarParaPainelPrestador" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 8;" />
+                                                                    </children>
+                                                                </HBox>
+                                                                <Label text="Orçamento (Seu Lançamento)" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #1c66ff; -fx-padding: 6 0 6 0;" />
+                                                                <TableView fx:id="tableViewItensPrestador" prefHeight="150"
+                                                                           style="-fx-background-radius: 10;" />
+
+                                                                <Label fx:id="lblNomeProjetoPrestador" style="-fx-font-weight: bold; -fx-font-size: 16; -fx-padding: 6 0 0 0;" />
+                                                                <Label fx:id="lblClientePrestador" />
+                                                                <Label fx:id="lblTipoServicoPrestador" />
+                                                                <Label fx:id="lblPrazoPrestador" />
+
+                                                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                                                    <children>
+                                                                        <Label text="Status:" />
+                                                                        <ComboBox fx:id="comboStatusPrestador" prefWidth="150"
+                                                                                  style="-fx-background-radius: 10;" />
+                                                                    </children>
+                                                                </HBox>
+
+                                                                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #eef3ff; -fx-padding: 8; -fx-background-radius: 8;">
+                                                                    <children>
+                                                                        <TextField fx:id="txtNomeItem" prefWidth="150" promptText="Nome do Item"
+                                                                                   style="-fx-background-radius: 8;" />
+                                                                        <TextField fx:id="txtQtdItem" prefWidth="75" promptText="Qtd."
+                                                                                   style="-fx-background-radius: 8;" />
+                                                                        <TextField fx:id="txtValorUnitItem" prefWidth="125" promptText="Valor Unit. (R$)"
+                                                                                   style="-fx-background-radius: 8;" />
+                                                                        <Button text="+" onAction="#handleAdicionarItem"
+                                                                                style="-fx-background-color: #1c66ff; -fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 5 12;" />
+                                                                    </children>
+                                                                </HBox>
+
+                                                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                                                    <children>
+                                                                        <Label text="Mão de Obra (R$):" />
+                                                                        <TextField fx:id="txtValorMaoDeObra" prefWidth="100" text="0.00"
+                                                                                   style="-fx-background-radius: 8;" />
+                                                                    </children>
+                                                                </HBox>
+
+                                                                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 6 0 0 0;">
+                                                                    <children>
+                                                                        <Label text="Valor Contrato (R$):" />
+                                                                        <TextField fx:id="txtValorContratoTotal" prefWidth="120" promptText="Total" style="-fx-background-radius:8;" />
+                                                                        <Label text="Recebido (R$):" />
+                                                                        <TextField fx:id="txtValorRecebido" prefWidth="120" promptText="Recebido" style="-fx-background-radius:8;" />
+                                                                        <Button text="Atualizar Pagamento" onAction="#handleAtualizarPagamento" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius:8;" />
+                                                                    </children>
+                                                                </HBox>
+
+                                                                <Label fx:id="lblSaldoPrestador" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-padding: 6 0 0 0;" />
+
+                                                                <Label fx:id="lblOrcamentoTotalPrestador" style="-fx-font-size: 14; -fx-font-weight: bold;" />
+
+                                                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                                                    <children>
+                                                                        <Label text="Progresso:" />
+                                                                        <ProgressBar fx:id="progressBarPrestador" prefWidth="200" />
+                                                                    </children>
+                                                                </HBox>
+
+                                                                <Label text="Observações/Progresso:" style="-fx-padding: 10 0 0 0;" />
+                                                                <TextArea fx:id="txtObservacoesPrestador" prefHeight="70" wrapText="true"
+                                                                          style="-fx-background-radius: 10;" />
+
+                                                                <Button text="Salvar Alterações" onAction="#handleSalvarOrcamento"
+                                                                    style="-fx-background-color: #1c66ff; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 15;" />
+                                                            </children>
+                                                        </VBox>
+
+                                                        <Label fx:id="feedbackLabel" style="-fx-text-fill: red; -fx-font-weight: bold;" />
+
+                                                    </VBox>
+                                                </content>
+                                            </ScrollPane>
+
+                                        </children>
+                                    </HBox>
+                                </content>
+                            </Tab>
+
+
+                            
+                            <Tab fx:id="novoProjetoTab" text="Novo Projeto (Cliente)">
+                                <content>
+                                    <VBox alignment="TOP_CENTER" spacing="15"
+                                          style="-fx-padding: 20 50; -fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10,0,0,4);">
+
+                                        <children>
+                                            <Label text="Solicitar Orçamento de Novo Projeto"
+                                                   style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #1c66ff;" />
+
+                                            <TextField fx:id="newProjectNameField" promptText="Nome do Projeto"
+                                                       style="-fx-background-radius: 10; -fx-padding: 10;" />
+                                            <TextField fx:id="newProjectTypeField" promptText="Tipo de Serviço"
+                                                       style="-fx-background-radius: 10; -fx-padding: 10;" />
+
+                                            <TextArea fx:id="newProjectDescriptionArea" promptText="Descrição detalhada"
+                                                      prefHeight="80" wrapText="true"
+                                                      style="-fx-background-radius: 10; -fx-padding: 10;" />
+
+                                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                                <children>
+                                                    <Label text="Data de Início:" />
+                                                    <DatePicker fx:id="newProjectStartDatePicker"
+                                                                style="-fx-background-radius: 10;" />
+                                                </children>
+                                            </HBox>
+
+                                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                                <children>
+                                                    <Label text="Data Fim:" />
+                                                    <DatePicker fx:id="newProjectEndDatePicker"
+                                                                style="-fx-background-radius: 10;" />
+                                                </children>
+                                            </HBox>
+
+                                            <Label text="Escolha um Prestador:" />
+                                            <ListView fx:id="prestadoresDisponiveisListView" prefHeight="100"
+                                                      style="-fx-background-radius: 10; -fx-border-color: #1c66ff; -fx-border-radius: 10;" />
+
+                                            <Label fx:id="newProjectFeedbackLabel" style="-fx-text-fill: red; -fx-font-weight: bold;" />
+
+                                            <Button text="Enviar Solicitação"
+                                                    onAction="#handleCriarNovoProjeto"
+                                                    style="-fx-background-color: #1c66ff; -fx-text-fill: white; -fx-font-size: 14; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;" />
+                                        </children>
+
+                                    </VBox>
+                                </content>
+                            </Tab>
+
+                        </tabs>
+                    </TabPane>
+
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

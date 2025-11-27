@@ -1,0 +1,213 @@
+/* ===========================
+   🎨 STYLE.CSS — CHAT & PAINEL
+   =========================== */
+
+/* ---------- GERAIS ---------- */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #f4f7f6; /* Cor de fundo suave */
+}
+
+/* ---------- TÍTULOS ---------- */
+.title-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 20 0 20 0;
+}
+
+/* ---------- BOTÕES ---------- */
+
+/* Botão primário (ações principais) */
+.button-primary {
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+.button-primary:hover {
+    -fx-background-color: #218838;
+}
+
+/* Botão secundário (ex: Voltar) */
+.button-secondary {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+.button-secondary:hover {
+    -fx-background-color: #0056b3;
+}
+
+/* Botão de perigo (ex: Sair/Excluir) */
+.button-danger {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+.button-danger:hover {
+    -fx-background-color: #c82333;
+}
+
+/* ---------- CAMPOS DE TEXTO ---------- */
+.text-field-custom,
+.password-field-custom,
+.combo-box {
+    -fx-padding: 8;
+    -fx-border-color: #ced4da;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-size: 14px;
+}
+.text-field-custom:focused,
+.password-field-custom:focused,
+.combo-box:focused {
+    -fx-border-color: #007bff;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 0);
+}
+
+/* ---------- MENSAGENS DE ERRO ---------- */
+.error-message {
+    -fx-text-fill: #dc3545;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* ---------- IMAGENS DE PERFIL ---------- */
+.profile-image-small {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 0);
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+}
+
+.profile-image-large {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 0);
+    -fx-border-color: #cccccc;
+    -fx-border-width: 2;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+}
+
+/* ---------- LISTAS (ex: prestadores, contratos) ---------- */
+.list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.list-cell-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-padding: 10;
+    /* "margin" não é suportado diretamente em JavaFX CSS */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 5, 0, 0, 0);
+}
+.list-cell-card:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+/* ---------- TEXTO NAS CÉLULAS ---------- */
+.list-item-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-text-fill: #333333;
+}
+.list-item-subtitle {
+    -fx-font-style: italic;
+    -fx-font-size: 12px;
+    -fx-text-fill: #555555;
+}
+.list-item-description {
+    -fx-font-size: 12px;
+    -fx-text-fill: #666666;
+}
+
+/* ---------- CHAT ---------- */
+.chat-profile-image {
+    -fx-border-color: lightgray;
+    -fx-border-width: 1;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+}
+
+/* ---------- STATUS DE CONTRATO ---------- */
+.status-pendente {
+    -fx-text-fill: orange;
+}
+.status-em-andamento {
+    -fx-text-fill: blue;
+}
+.status-finalizado {
+    -fx-text-fill: green;
+}
+.status-cancelado {
+    -fx-text-fill: red;
+}
+
+/* ---------- CABEÇALHO E ÁREA DE MENSAGEM ---------- */
+.header-background {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 0 0 1 0;
+}
+
+.message-input-area {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 1 0 0 0;
+}
+
+.chat-list-view {
+    -fx-background-color: #f9f9f9;
+}
+
+/* ---------- GERAL: PÁGINA E CARDS ---------- */
+.page-container {
+    -fx-padding: 20;
+}
+
+.sidebar-card {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e9e9ef;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 6, 0, 0, 0);
+}
+
+.content-card {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e9e9ef;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 6, 0, 0, 0);
+}
+
+.card-table {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+/* ---------- BADGE ---------- */
+.badge {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-padding: 4 8;
+    -fx-background-radius: 12;
+    -fx-font-weight: bold;
+}

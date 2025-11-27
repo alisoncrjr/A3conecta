@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@/Application/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistroPerfilPrestadorController">
+    <children>
+        <StackPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" styleClass="app-shell">
+            <children>
+                <VBox alignment="CENTER" prefHeight="450.0" prefWidth="420.0" spacing="15.0" styleClass="card mobile-card">
+            <children>
+                <ImageView fitHeight="78.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@/icons/prestador_profile_icon.png" />
+                    </image>
+                </ImageView>
+                <Label styleClass="title-label" text="Complete seu cadastro!">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <VBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <TextField fx:id="descricaoServicoField" prefHeight="40.0" promptText="Descrição do Serviço" styleClass="text-field-custom" />
+                        <TextField fx:id="enderecoField" prefHeight="40.0" promptText="Endereço" styleClass="text-field-custom" />
+                        <TextField fx:id="telefoneField" prefHeight="40.0" promptText="Telefone (ex: (DD) XXXXX-XXXX)" styleClass="text-field-custom" />
+                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
+                            <children>
+                                <Label text="Categoria:">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="categoriaComboBox" prefHeight="35.0" prefWidth="150.0" styleClass="combo-box" HBox.hgrow="ALWAYS" />
+                            </children>
+                            <padding>
+                                <Insets left="5.0" right="5.0" />
+                            </padding>
+                        </HBox>
+                        <Label fx:id="errorMessageLabel" styleClass="error-message" text="" />
+                      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="295.0" spacing="20.0">
+                          <children>
+                              <Button onAction="#handleVoltar" prefHeight="45.0" prefWidth="120.0" styleClass="button-secondary" text="Voltar" />
+                              <Button onAction="#handleFinalizarRegistro" prefHeight="45.0" prefWidth="120.0" styleClass="button-primary" text="Finalizar" />
+                          </children>
+                      </HBox>
+                    </children>
+                    <padding>
+                        <Insets left="20.0" right="20.0" />
+                    </padding>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+            </padding>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

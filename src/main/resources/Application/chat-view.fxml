@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane stylesheets="@/Application/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ChatController" styleClass="app-shell">
+    <children>
+        <VBox prefHeight="600.0" prefWidth="420.0" styleClass="card mobile-card" >
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="10.0" styleClass="header-background">
+            <padding>
+                <Insets left="15.0" right="15.0" />
+            </padding>
+            <Button fx:id="backButton" onAction="#handleBack" prefHeight="30.0" prefWidth="102.0" styleClass="button-transparent" text="Voltar" />
+
+            <ImageView fx:id="chatPartnerImageView" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="profile-image-small" />
+            <Label fx:id="chatPartnerNameLabel" styleClass="header-title" text="Nome do Parceiro">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+        </HBox>
+
+        <ListView fx:id="chatMessagesListView" styleClass="chat-list-view" VBox.vgrow="ALWAYS">
+            <VBox.margin>
+                <Insets bottom="5.0" top="5.0" />
+            </VBox.margin>
+        </ListView>
+
+                <HBox alignment="CENTER_LEFT" prefHeight="50.0" spacing="10.0" styleClass="message-input-area">
+            <padding>
+                <Insets left="15.0" right="15.0" />
+            </padding>
+            <TextField fx:id="messageInputField" promptText="Digite sua mensagem..." styleClass="text-field-custom" HBox.hgrow="ALWAYS" />
+            <Button fx:id="sendMessageButton" onAction="#handleSendMessage" prefHeight="26.0" prefWidth="103.0" styleClass="button-primary" text="Enviar" />
+        </HBox>
+            </children>
+        </VBox>
+    </children>
+</StackPane>

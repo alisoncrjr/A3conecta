@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0" stylesheets="@/Application/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistroController">
+    <children>
+        <StackPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" styleClass="app-shell">
+            <children>
+                <VBox fx:id="registroForm" alignment="CENTER" prefHeight="600.0" prefWidth="420.0" spacing="15.0" styleClass="card mobile-card">
+                    <children>
+                        <ImageView fitHeight="105.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@/icons/register_icon.png" />
+                            </image>
+                        </ImageView>
+                        <Label styleClass="title-label" text="Crie sua conta!">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <VBox alignment="CENTER" spacing="10.0">
+                            <children>
+                                <TextField fx:id="nameField" prefHeight="40.0" promptText="Nome Completo" styleClass="text-field-custom" />
+                                <TextField fx:id="emailField" prefHeight="40.0" promptText="Email" styleClass="text-field-custom" />
+                                <PasswordField fx:id="passwordField" prefHeight="40.0" promptText="Senha" styleClass="password-field-custom" />
+
+                                <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="text-field-custom">
+                                    <children>
+                                        <Label fx:id="cpfCnpjLabel" prefWidth="50.0" text="CPF:" />
+                                        <TextField fx:id="cpfCnpjField" promptText="Digite seu CPF" style="-fx-background-color: transparent; -fx-border-color: transparent;" HBox.hgrow="ALWAYS" />
+                                    </children>
+                                </HBox>
+
+                                <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
+                                    <children>
+                                        <Label text="Tipo de Usuário:">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <ChoiceBox fx:id="userTypeChoiceBox" prefHeight="35.0" prefWidth="150.0" styleClass="combo-box" HBox.hgrow="ALWAYS" />
+                                    </children>
+                                    <padding>
+                                        <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                </HBox>
+                                <Label fx:id="errorMessageLabel" styleClass="error-message" text="" wrapText="true" />
+                            </children>
+                            <padding>
+                                <Insets left="20.0" right="20.0" />
+                            </padding>
+                        </VBox>
+                        <HBox alignment="CENTER" spacing="20.0">
+                            <children>
+                                <Button onAction="#handleVoltar" prefHeight="45.0" prefWidth="120.0" styleClass="button-secondary" text="Voltar" />
+                                <Button onAction="#handleProximo" prefHeight="45.0" prefWidth="120.0" styleClass="button-primary" text="Próximo" />
+                            </children>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </padding>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>
